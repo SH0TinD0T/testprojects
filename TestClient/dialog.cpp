@@ -30,6 +30,7 @@ Dialog::~Dialog()
 
 void Dialog::on_pushButton_clicked()
 {
+    ui->pushButton->setEnabled(false);
     socket->connectToHost("127.0.0.1", 12345);
     updateConnectionStatus("Подключение...");
 }
@@ -57,6 +58,8 @@ void Dialog::onReadyRead()
 void Dialog::onError(QAbstractSocket::SocketError socketError)
 {
     // Обработка ошибок при подключении
+    model->clear();
+    ui->pushButton->setEnabled(true);
     updateConnectionStatus("Ошибка: " + socket->errorString());
 }
 

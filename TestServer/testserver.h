@@ -40,6 +40,7 @@ private:
     void parseXmlAndStoreData(QXmlStreamReader &xml);
     void saveJsonToDatabase(int blockId, const QString &jsonString);
     QString getJsonDataFromDatabase();
+    void checkModifications();
 
     QTcpServer *server;
     QTcpSocket *clientSocket;

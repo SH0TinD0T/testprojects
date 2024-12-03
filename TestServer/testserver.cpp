@@ -16,7 +16,6 @@
 
 const QString TestServer::XML_FOLDER_PATH = "C:/Users/Gregory/Documents/TestProjects/xml";
 
-
 TestServer::TestServer(QObject *parent)
     : QObject(parent),
     server(new QTcpServer(this)),
@@ -25,6 +24,7 @@ TestServer::TestServer(QObject *parent)
 {
     connect(server, &QTcpServer::newConnection, this, &TestServer::onNewConnection);
     initializeDatabase();
+    checkModifications();
 
     connect(timer, &QTimer::timeout, this, &TestServer::onTimeout);
     timer->start(60000);
@@ -226,7 +226,11 @@ QString TestServer::getJsonDataFromDatabase()
 void TestServer::onTimeout()
 {
     qDebug() << "Проверка изменений в XML файлах...";
+    checkModifications();
+}
 
+void TestServer::checkModifications()
+{
     QDir directory(XML_FOLDER_PATH);
     QStringList xmlFiles = directory.entryList(QStringList() << "*.xml", QDir::Files);
 
