@@ -1,0 +1,13 @@
+<net>
+<block id="102" Name="OGM" IP="1.1.1.2" BoardCount="24" MtR="7" MtC="32" Description="desc" Label="N2">
+	<board id="10203000" Num="3" Name="BC-120" PortCount="2" IntLinks="0:1-15;0:17-31|1:1-15;1:17-31" Algoritms="44,55">
+		<port id="10203001" Num="1" Media="3" Signal="2"/>
+		<port id="10203002" Num="2" Media="3" Signal="2"/>
+	</board>
+	<board id="10204000" Num="4" Name="KM-120" PortCount="0" />
+	<board id="10204000" Num="8" Name="CO-120" PortCount="2" IntLinks="5:11|5:12" Algoritms="44,55">
+		<port id="10208001" Num="1" Media="3" Signal="1"/>
+		<port id="10208002" Num="2" Media="3" Signal="1"/>
+	</board>
+</block>
+</net>
